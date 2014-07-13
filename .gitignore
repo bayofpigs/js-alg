@@ -1,0 +1,15 @@
+# Created by http://www.gitignore.io
+
+### vim ###
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+## Private clients ##
+src/scheduler.js
+src/PrimsMST.js
+privatetests/*
+privatesrc/*
