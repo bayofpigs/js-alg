@@ -10,6 +10,5 @@ Session.vim
 
 ## Private clients ##
 src/scheduler.js
-src/PrimsMST.js
 privatetests/*
 privatesrc/*

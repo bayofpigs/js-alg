@@ -33,11 +33,11 @@ function IndexedHeap(size, comparator) {
 
   // The inverse of pq
   this.qp = [];
-  for (var i = 0; i <= size; i++) this.qp[i] = 0;
+  for (var i = 0; i <= size; i++) this.pq[i] = 0;
   for (var i = 0; i <= size; i++) this.qp[i] = -1;
 }
 
-/*
+/* 
  * Is the heap empty?
  * @return True if the heap is empty; false otherwise
  */
@@ -51,7 +51,7 @@ IndexedHeap.prototype.isEmpty = function() {
  */
 IndexedHeap.prototype.contains = function(i) {
   if (i < 0 || i >= this.size) throw new Error("Index out of bounds");
-  return this.qp[i] != -1;
+  return this.qp[i] != -1 && this.qp[i] != undefined;
 }
 
 /**
@@ -139,11 +139,14 @@ IndexedHeap.prototype.changeKey = function(i, key) {
 }
 
 IndexedHeap.prototype.decreaseKey = function(i, key) {
+  console.log("I: " + i);
+  console.log("Key: " + key);
+  console.log("Old Key: " + this.keys[i]);
   if (i < 0 || i >= this.size) throw new Error("Index out of bounds");
   if (!this.contains(i)) throw new Error("Index is not in the priority queue");
   if (this.comparator(this.keys[i], key) <= 0) throw new Error("Calling decreaseKey() with given argument would not strictly decrease the key");
   this.keys[i] = key;
-  this._swim(qp[i]);
+  this._swim(this.qp[i]);
 }
 
 IndexedHeap.prototype.increaseKey = function(i, key) {

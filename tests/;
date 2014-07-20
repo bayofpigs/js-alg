@@ -1,0 +1,4 @@
+var UnionFind = require('../src/unionfind.js');
+
+var uf = new UnionFind(10);
+uf.union(2, 3);
